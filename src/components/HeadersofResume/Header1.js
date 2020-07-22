@@ -12,12 +12,12 @@ function Header1(props) {
                     <Grid align="right">
                         <br/>
                         <TextBlock fontSize="70px" fontWeight="700" textAlign="right" padding="30px 0 0 0" margin="0">
-                                Harshit
+                                {props.nameOfResumeHolder}
                         </TextBlock>
                         <br/>
-                        <TextBlock fontSize="70px" fontWeight="700" textAlign="right" margin="-20px 0 0 0">
-                                Sahu
-                        </TextBlock>
+                        {/* <TextBlock fontSize="70px" fontWeight="700" textAlign="right" margin="-20px 0 0 0">
+                                {props.nameOfResumeHolder_lastname}
+                        </TextBlock> */}
                     </Grid>
                 </Grid>
                 <Grid item lg={4}>
@@ -34,12 +34,12 @@ function Header1(props) {
                     <Grid align="left">
                         <br/>
                         <TextBlock fontSize="30px" fontWeight="600" textAlign="left" padding="20px 0 0 0" margin="10em 0 0 0">
-                            Profile
+                            {props.aboutMeTitle}
                         </TextBlock>
                         <br/>
                         
                         <TextBlock fontSize="20px" textAlign="left" lineHeight="22px" padding="0" margin="0">
-                            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. 
+                          {props.aboutMeSummary}
                         </TextBlock>
                     </Grid>
                 </Grid>
@@ -48,5 +48,8 @@ function Header1(props) {
     )
 }
 
-
-export default connect()(Header1);
+const mapStateToProps = state =>{
+    const {contentReducer} = state
+    return contentReducer
+}
+export default connect(mapStateToProps)(Header1);
